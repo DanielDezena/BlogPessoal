@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="postgen/.mvn/wrapper"/>
+	<classpathentry kind="src" path="postgen/src/main/java"/>
+	<classpathentry kind="src" path="postgen/src/test/java"/>
+	<classpathentry kind="output" path="postgen/target/classes"/>
+</classpath>
