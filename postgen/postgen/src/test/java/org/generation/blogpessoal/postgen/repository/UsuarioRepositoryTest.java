@@ -24,29 +24,30 @@ public class UsuarioRepositoryTest {
 
 	@BeforeAll
 	void start() {
-		usuarioRepository.save(new Usuario(0L, "Gabriel Monteiro", "gabrielmonte@mail.com", "123456789"));
-		usuarioRepository.save(new Usuario(0L, "Pedro Monteiro", "pedrimonte@mail.com", "123456789"));
-		usuarioRepository.save(new Usuario(0L, "José Monteiro", "josemonte@mail.com", "123456789"));
-		usuarioRepository.save(new Usuario(0L, "Guilherme Monteiro", "guimonte@mail.com", "123456789"));
+		usuarioRepository.save(new Usuario(0L, "Gabriel Monteiro", "gabrielmonte@gmail.com.br", "123456789"));
+		usuarioRepository.save(new Usuario(0L, "Pedro Monteiro", "pedrimonte@gmail.com.br", "123456789"));
+		usuarioRepository.save(new Usuario(0L, "José Monteiro", "josemonte@gmail.com.br", "123456789"));
+		usuarioRepository.save(new Usuario(0L, "Guilherme Monteiro", "guimonte@gmail.com.br", "123456789"));
 
 	}
 
 	@Test
 	@DisplayName("retorna 1 usuario")
 	public void deveRetornarIUmUsuario() {
-		Optional<Usuario> usuario = usuarioRepository.findByUsuario("pedrimonte@gmail.com");
-		assertTrue(usuario.get().getUsuario().equals("pedrimonte@gmail.com"));
+		Optional<Usuario> usuario = usuarioRepository.findByUsuario("pedrimonte@gmail.com.br");
+		assertTrue(usuario.get().getUsuario().equals("pedrimonte@gmail.com.br"));
 
 	}
 
 	@Test
 	@DisplayName("retorna 3 usuarios")
 	public void deveRetornarTresUsuarios() {
-		List<Usuario> listaDeUsuarios = usuarioRepository.findAllByUsuarioContainingIgnoreCase("monteiro");
+		List<Usuario> listaDeUsuarios = usuarioRepository.findAllByUsuarioContainingIgnoreCase("Monteiro");
 		assertEquals(3, listaDeUsuarios.size());
-		assertTrue(listaDeUsuarios.get(0).getNome().equalsIgnoreCase("Gabriel Montero"));
-		assertTrue(listaDeUsuarios.get(1).getNome().equalsIgnoreCase("Pedro Montero"));
-		assertTrue(listaDeUsuarios.get(2).getNome().equalsIgnoreCase("José Montero"));
+		assertTrue(listaDeUsuarios.get(1).getNome().equalsIgnoreCase("Gabriel Monteiro"));
+		assertTrue(listaDeUsuarios.get(2).getNome().equalsIgnoreCase("Guilherme Monteiro"));
+		assertTrue(listaDeUsuarios.get(3).getNome().equalsIgnoreCase("José Monteiro"));
+		
 
 	}
 
